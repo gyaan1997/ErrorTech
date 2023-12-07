@@ -1,0 +1,31 @@
+/* ProductCard.css */
+.product-card {
+    background-color: #f1d6c4;
+    border: 1px solid red;
+    border-radius: 4rem;
+    box-shadow: inset 0 0 5rem 2rem #fff;
+    flex-direction: column;
+    margin: 1rem;
+    scroll-snap-align: center;
+    width: 27rem;
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
