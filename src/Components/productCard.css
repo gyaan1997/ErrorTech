@@ -1,4 +1,3 @@
-/* ProductCard.css */
 .product-card {
   background-color: #f1d6c4;
   background-image: radial-gradient(#dfa57f 8%,transparent 0);
@@ -28,7 +27,7 @@
   border-radius: 2rem;
   
 }
-.product-image .background-design {
+ .background-design {
 
   align-items: center;
   background:#F0969E;
@@ -43,6 +42,7 @@
   margin-top: 3.5rem;
   
 }
+
 
 .product-name {
   font-size: 1.2rem;
@@ -70,8 +70,10 @@
   opacity: .8;
   
 }
-.product-maximize:hover{
-  color:  #b67225;
+
+.product-add-to-cart:hover {
+  background-color:#f8f6f2;
+  color: #fa8907;
 }
 .circle {
   background: #fa8907;
@@ -79,4 +81,9 @@
   border-radius: 50%;
   height: 8rem;
   width: 8rem;
+}
+figure>img {
+  width: 250px;
+  aspect-ratio: auto 265 / 111;
+  height: 250px;
 }

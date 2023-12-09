@@ -5,13 +5,12 @@ import API_ENDPOINTS from "../apiConfig";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../Reducers/authSlice";
-import './login.css'
+import "./login.css";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null); //
+  
   const navigate = useNavigate();
 
   const handleLogIn = async () => {
@@ -24,6 +23,7 @@ function Login() {
       console.log(response.data);
       dispatch(loginUser(response.data));
       navigate("/");
+      alert("Login successful!");
     } catch (error) {
       console.error("Error:", error.message);
       if (error.response) {
@@ -34,15 +34,13 @@ function Login() {
       } else {
         console.error("Error setting up the request:", error.message);
       }
+      alert("Login failed. Please check your credentials.");
     }
   };
-  // const handleLogOut = () => {
-  //   dispatch(logoutUser());
-  //   // Additional logic, such as navigating to the login page
-  // };
+
 
   return (
-    <div style={{display:"flex",justifyContent:"center"}}>
+    <div className="d-flex justify-content-center align-items-center vh-100 ">
       <Form className="common-background">
         <h2>Login</h2>
         <Form.Label>Email:</Form.Label>
@@ -53,20 +51,19 @@ function Login() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <Form.Label>Password:</Form.Label>
-        <div className="eye">
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
         <Button className="loginButton" type="button" onClick={handleLogIn}>
           Login
         </Button>
       </Form>
-      </div>
-
+    </div>
   );
 }
 

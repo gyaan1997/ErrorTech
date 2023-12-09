@@ -1,16 +1,26 @@
-// ProductCard.js
-import React from "react";
-import "./productCard.css"; // Import any additional custom styles
+
+import React,{useState} from "react";
+import "./productCard.css";
 import { useNavigate } from "react-router-dom";
-// import ProductHero from './ProductHero';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Reducers/cartSlice";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [addedToCart, setAddedToCart] = useState(false);
+
 
   const handleClick = (product) => {
     const id = product.id;
     navigate(`/products/${id}`, { state: { id: id } });
   };
+  const handleAddTocart = () => {
+    dispatch(addToCart(product));
+    setAddedToCart(true); 
+  };
+
 
   return (
     <div class="product-card" >
@@ -37,7 +47,7 @@ const ProductCard = ({ product }) => {
 </div>
         </a>
 
-        <span class="product-add-to-cart">
+        <span class="product-add-to-cart" onClick={handleAddTocart}>
         <svg
   aria-hidden="true"
   focusable="false"

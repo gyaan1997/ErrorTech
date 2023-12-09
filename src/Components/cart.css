@@ -1,0 +1,113 @@
+.main-content {
+    background: #f8d4bd;
+    grid-area: content;
+    padding: 1rem;
+}
+.cart-wrapper {
+    background-color: #f1d6c4;
+    background-image: radial-gradient(#dfa57f 8%,transparent 0);
+    background-position: 0 0;
+    background-size: 1.8rem 1.8rem;
+    border-radius: 4rem;
+    box-shadow: inset 0 0 5rem 2rem #fff;
+    flex-direction: column;
+    font-size: 1.2rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-header {
+    display: flex;
+    justify-content: center;
+}
+h3 {
+    display: block;
+    font-size: 1.2em;
+    margin-block-start: em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.cart-list {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cart-list .addRemoveButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.button1.exclusiveClass {
+    margin-right: 1rem;
+    width: 2rem;
+    border-radius: 50%;
+    color: black;
+    background-color: #f8d4bd;
+  }
+  .button2.exclusiveClass {
+    margin-right: 1rem;
+    width: 2rem;
+    border-radius: 50%;
+    color: black;
+    background-color: #f8d4bd;
+
+  }
+  .button3.exclusiveClass {
+width: 6rem;
+border-radius: 0.4rem;
+background-color: rgb(81, 17, 17);
+color: #f8d4bd;
+  }
+.cart-checkout {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+
+.cart-checkout, .cart-item-name, .cart-item-price, .cart-item-qty {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.cart-total {
+    display: flex;
+    padding-bottom: 1rem;
+}
+.cart-shipping {
+    display: flex;
+    padding-bottom: 2rem;
+}
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+.proceedButton{
+
+    background-color: #000 ;
+    border: none;
+    border-radius: 1rem !important;
+    color: #fa8907;
+    font-size: 1rem;
+    height: 3rem;
+    outline: none;
+    transition: box-shadow .5s;
+    width: 12rem;
+    margin-bottom: 1rem;
+
+}
+.proceedButton:hover{
+    background-color: #5a5656 ; 
+}

@@ -1,4 +1,4 @@
-// api.js
+
 const BASE_URL = 'https://fakestoreapi.com';
 
  const API_ENDPOINTS = {

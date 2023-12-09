@@ -9,11 +9,10 @@
     display: grid;
     grid-template-columns: repeat(3,minmax(0,1fr));
     justify-content: center;
-    /* margin-bottom: -20rem; */
     padding: 3rem;
     position: relative;
-    /* top: -20rem; */
     width: 90%;
+    margin-top: -40rem;
 }
 .product-detail-left-container{
     display: flex;

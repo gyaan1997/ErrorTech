@@ -1,11 +1,12 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
 import "./homepage.css";
 import Products from "../Components/Products";
+import RelatedProducts from '../Components/RelatedProducts'
+
 function HomePage() {
+  
   return (
     <div>
-      <Navbar />
       <div className="product-hero">
         <div class="ripple-design">
           <div class="ripple-circle very-small shade0"></div>
@@ -15,7 +16,7 @@ function HomePage() {
         </div>
         <div class="products-nav">
           <p class="breadCrump">
-            <span class="home-link">Home</span> / Shop
+            <span class="home-link" style={{color:"white"}}>Home</span> / Shop
           </p>
           <h3 class="title">Shop</h3>
           <div class="result-sorting">
@@ -30,7 +31,17 @@ function HomePage() {
         </div>
       </div>
 
-      <Products />
+     <div className="items">
+      <div>
+      <Products limit={4} />
+      </div>
+  
+     <h4>Related Products</h4>
+     <div>
+     <RelatedProducts limit={4}/>
+     </div>
+     </div>
+   
     </div>
   );
 }

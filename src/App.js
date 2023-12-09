@@ -9,9 +9,12 @@ import SignUp from './Components/SignUp';
 import Blog from './Components/Blog';
 import Contact from './Components/Contact';
 import MyAccount from './Components/MyAccount';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 function App() {
   return (
     <div className="App">
+      <Navbar/>
     <Routes>
     <Route path='/' element={<HomePage />} />
     <Route path='/products' element={<ProductsPage />} />
@@ -27,6 +30,7 @@ function App() {
 
 
     </Routes>
+    <Footer/>
     </div>
   );
 }

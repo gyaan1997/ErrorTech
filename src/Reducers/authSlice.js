@@ -25,3 +25,4 @@ export const { loginUser, logoutUser ,signUpUser} = authSlice.actions;
 export default authSlice.reducer;
 
 export const selectUser = (state) => state.auth.user;
+export const selectUsername = (state) => state.auth.user ? state.auth.user.username : null;

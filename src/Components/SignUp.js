@@ -24,6 +24,7 @@ function SignUp() {
       dispatch(signUpUser(response.data)); 
 
       navigate('/login');
+      alert("SignUp successful!");
     } catch (error) {
       console.error('Error:', error.message);
       if (error.response) {
@@ -36,12 +37,14 @@ function SignUp() {
       } else {
         console.error('Error setting up the request:', error.message);
       }
+      alert("SignUp failed. Please try again.");
+
     }
   };
   
   return (
    
-  <div style={{display:"flex",justifyContent:"center"}}>   
+  <div  className="d-flex justify-content-center align-items-center vh-100">   
      <Form className="common-background">
         <h2>SignUp</h2>
         <Form.Label>Email:</Form.Label>
@@ -52,14 +55,19 @@ function SignUp() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <Form.Label>Password:</Form.Label>
-        <div className="eye">
-          <Form.Control
+        <Form.Control
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+           <Form.Label>Confirm password:</Form.Label>
+            <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         <Button className="loginButton" type="button" onClick={handleSignUp}>
           SignUp
         </Button>

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API_ENDPOINTS from "../apiConfig";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { addToCart } from "../Reducers/cartSlice";
 import { useDispatch } from "react-redux";
 import './productHero.css';
 function ProductHero() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const [product, setProduct] = useState("");
@@ -18,7 +17,6 @@ function ProductHero() {
       try {
         const response = await axios.get(API_ENDPOINTS.getSingleProduct(id));
         setProduct(response.data);
-        // console.log(response.data)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -29,12 +27,29 @@ function ProductHero() {
 
   const handleAddTocart = () => {
     dispatch(addToCart(product));
-    console.log("action dispatched with payload", product);
-    // navigate("/cart");
     setAddedToCart(true); 
   };
 
   return (
+ <>
+ <div className="product-hero" >
+        <div class="ripple-design">
+          <div class="ripple-circle very-small shade0"></div>
+          <div class="ripple-circle small shade1"></div>
+          <div class="ripple-circle medium shade2"></div>
+          <div class="ripple-circle large shade3"></div>
+        </div>
+        <div class="products-nav">
+          <p class="breadCrump">
+            <span class="home-link">Home</span> / Shop
+          </p>
+          <h3 class="title">Shop</h3>
+       
+        </div>
+      </div>
+
+    <div className="d-flex justify-content-center align-items-center vh-100  ">   
+       
     <div class="product-details-card">
       <div class="product-detail-left-container">
         <div class="product-details-name">
@@ -73,6 +88,9 @@ function ProductHero() {
         )}      </div>
      
     </div>
+    </div>
+
+    </>
   );
 }
 

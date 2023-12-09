@@ -1,4 +1,3 @@
-// cartSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 // Function to load state from localStorage
@@ -68,22 +67,7 @@ const cartSlice = createSlice({
   },
 });
 
-// Selector to get the cartItems from the state
 export const selectCartItems = (state) => state.cart.cartItems;
-
-// // Create a memoized selector using createSelector
-// export const selectCartItemsMemoized = createSelector(
-//   [selectCartItems],
-//   (cartItems) => cartItems || []
-// );
-
-// const cartSlice = createSlice({
-//   name: 'cart',
-//   initialState: loadState() || { cartItems: [] },
-//   reducers: {
-//     // ... existing reducers
-//   },
-// });
 
 export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -47,8 +47,3 @@
    .shade1 , .shade2, .shade3{
     opacity: .4;
    }
-   .result-sorting {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
