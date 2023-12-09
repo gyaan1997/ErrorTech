@@ -1,90 +1,72 @@
-import React, { useState } from 'react';
-import { Card, Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import API_ENDPOINTS from '../apiConfig';
-
+import React, { useState } from "react";
+import { Card, Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import API_ENDPOINTS from "../apiConfig";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../Reducers/authSlice";
+import './login.css'
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const dispatch = useDispatch();
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null); //
+  const navigate = useNavigate();
 
-  const Navigate = useNavigate();
-
-  const handleLogin = async () => {
+  const handleLogIn = async () => {
     try {
-      const body = JSON.stringify({ email, password });
-
-      const response = await fetch(API_ENDPOINTS.login, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body,
+      const response = await axios.post(API_ENDPOINTS.login, {
+        username: "mor_2314",
+        password: "83r5^_",
       });
 
-      if (response.ok) {
-        const { token } = await response.json();
-
-        localStorage.setItem('jwtToken', token);
-        Navigate('./analytics');
-      } else if (response.status === 401) {
-        setErrorMessage('User not signed up. Please create an account.');
-        setIsLoggedIn(true);
-      } else {
-        console.error('Authentication failed');
-        setIsLoggedIn(false);
-      }
+      console.log(response.data);
+      dispatch(loginUser(response.data));
+      navigate("/");
     } catch (error) {
-      console.error('Error during authentication', error);
-      setIsLoggedIn(false);
+      console.error("Error:", error.message);
+      if (error.response) {
+        console.error("Server responded with:", error.response.data);
+        console.error("Status code:", error.response.status);
+      } else if (error.request) {
+        console.error("No response received from the server");
+      } else {
+        console.error("Error setting up the request:", error.message);
+      }
     }
   };
+  // const handleLogOut = () => {
+  //   dispatch(logoutUser());
+  //   // Additional logic, such as navigating to the login page
+  // };
 
   return (
-    <Card className='login-card'>
-      <Card.Body>
-        <Card.Title>Login</Card.Title>
-        {errorMessage && (
-          <p style={{ color: 'red', marginBottom: isLoggedIn ? '16px' : '0' }}>
-            {errorMessage}
-          </p>
-        )}
-        <Form style={{ width: '60%' }}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    <div style={{display:"flex",justifyContent:"center"}}>
+      <Form className="common-background">
+        <h2>Login</h2>
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Form.Label>Password:</Form.Label>
+        <div className="eye">
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <Button className="loginButton" type="button" onClick={handleLogIn}>
+          Login
+        </Button>
+      </Form>
+      </div>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-
-          <Button
-            variant="primary"
-            onClick={handleLogin}
-            style={{ marginTop: 16 }}
-          >
-            Login
-          </Button>
-
-          <p style={{ marginTop: 16, cursor: 'pointer' }} onClick={() => { Navigate('/signup') }}>
-            New Registration?
-          </p>
-        </Form>
-      </Card.Body>
-    </Card>
   );
 }
 

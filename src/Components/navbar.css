@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    background-color: #f8d4bd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem !important;
+    
+  }
+
+  
+  .logo {
+  background-color: #f8f6f2;
+    border-radius: 50%;
+    box-shadow: 0 0 0.2rem rgba(0,0,0,.5);
+    color: #000;
+    font-size: .8rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+   
+    display: flex;
+    
+  }
+  .dots {
+   
+    display: flex;
+  flex-wrap: wrap !important;
+ 
+    align-items: center;
+    justify-content: center; 
+   
+  
+  }
+ .brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding-left: .5rem;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+  
+  .nav-links {
+    
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly;
+   
+   
+
+  }
+  .nav-link{
+    font-size: 1.2rem !important;
+    font-weight: 700;
+    margin-left: 2.5rem; 
+  }
+  .active{
+    color: #9d3615;
+  }
+  .nav-item {
+    /* margin-right: 40px; */
+    text-decoration: none;
+    color: #000 !important;
+
+  }
+  .active {
+    /* margin-right: 40px; */
+    text-decoration: none !important;
+    color: #9d3615 !important;
+
+  }
+  
+  .nav-item:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
+  .add-to-cart{
+    align-items: center;
+    background-color: #f8f6f2;
+    border-radius: 50%;
+    box-shadow: 0 0 0.2rem rgba(0,0,0,.5);
+    cursor: pointer;
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    justify-content: center;
+    opacity: .8;
+ 
+  }
+  

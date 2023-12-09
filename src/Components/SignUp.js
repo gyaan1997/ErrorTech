@@ -1,71 +1,72 @@
 import React, { useState } from 'react';
-import { Card, Button, Form } from 'react-bootstrap';
+import { Card, Button, Form, Alert  } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import API_ENDPOINTS from '../apiConfig';
-
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { signUpUser } from '../Reducers/authSlice';
+import './login.css'
 function SignUp() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  const dispatch=useDispatch();
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.login, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post(API_ENDPOINTS.login, {
+        username: 'mor_2314',
+        password:  "83r5^_",
       });
 
-      if (response.ok) {
-        console.log('Signed up successfully!');
-        navigate('/');
-      } else {
-        const data = await response.json();
-        console.error('error reg user', data.error);
-      }
+      console.log(response.data);
+      dispatch(signUpUser(response.data)); 
+
+      navigate('/login');
     } catch (error) {
-      console.error('Error registering user', error);
+      console.error('Error:', error.message);
+      if (error.response) {
+     
+        console.error('Server responded with:', error.response.data);
+        console.error('Status code:', error.response.status);
+      } else if (error.request) {
+      
+        console.error('No response received from the server');
+      } else {
+        console.error('Error setting up the request:', error.message);
+      }
     }
   };
-
+  
   return (
-    <Card className='SignUp'>
-      <Card.Body>
-        <Card.Title>SignUp</Card.Title>
-        <Form style={{ width: '60%' }}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+   
+  <div style={{display:"flex",justifyContent:"center"}}>   
+     <Form className="common-background">
+        <h2>SignUp</h2>
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Form.Label>Password:</Form.Label>
+        <div className="eye">
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <Button className="loginButton" type="button" onClick={handleSignUp}>
+          SignUp
+        </Button>
+      </Form>
+      </div>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-
-          <Button
-            variant="primary"
-            onClick={handleSignUp}
-            style={{ marginTop: 16 }}
-          >
-            Submit
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
-  );
+    );
 }
 
 export default SignUp;

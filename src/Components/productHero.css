@@ -1,0 +1,96 @@
+.product-details-card {
+    align-content: center;
+    background-color: #f1d6c4;
+    background-image: radial-gradient(#dfa57f 8%,transparent 0);
+    background-position: 0 0;
+    background-size: 1.8rem 1.8rem;
+    border-radius: 3rem;
+    box-shadow: inset 0 0 5rem 2rem #fff;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    justify-content: center;
+    /* margin-bottom: -20rem; */
+    padding: 3rem;
+    position: relative;
+    /* top: -20rem; */
+    width: 90%;
+}
+.product-detail-left-container{
+    display: flex;
+    flex-direction: column;
+  justify-content: space-around;
+}
+.product-details-name {
+    color: #45409c;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.product-details-description {
+    color: #aaa198;
+    font-size: 1rem;
+    font-weight: 550;
+}
+
+.product-detail-middle-container {
+    align-items: center;
+    background-color: #f1d6c4;
+    border-bottom: 0.2rem inset #fe7c558a;
+    border-radius: 50%;
+    border-top: 0.2rem inset #fe7c558a;
+    display: flex;
+    height: 32rem;
+    justify-content: center;
+    position: relative;
+    width: 32rem;
+}
+.product-image-gallery {
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: inset 0 0 2rem 1rem #fff;
+    display: flex;
+    flex-direction: column;
+    height: 28rem;
+    justify-content: center;
+    position: absolute;
+    width: 28rem;
+}
+img {
+    width: 300px;
+    aspect-ratio: auto 265 / 111;
+    height: 300px;
+}
+.product-detail-right-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addtocartButton {
+    background-color: #000;
+    border: none;
+    border-radius: 2rem !important;
+    color: #fa8907;
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    outline: none;
+    transition: box-shadow .5s;
+    width: 12rem;
+    transition: background-color 0.3s ease;
+}
+.addtocartButton:hover{
+    background-color: #4f4c4c;
+}
+.addedMessage{
+    background-color: #4f4c4c;
+    border: none;
+    border-radius: 2rem !important;
+    color: #e6b989;
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    outline: none;
+    transition: box-shadow .5s;
+    width: 12rem; 
+}
+.addtocartButton:active {
+    background-color: #191b1a;}

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
-
+import './products.css'
 import API_ENDPOINTS from '../apiConfig'
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -20,13 +20,38 @@ const Home = () => {
     fetchData();
   }, []);
 
+
+//   // Function to shuffle the products
+//    const  shuffleProducts=(array)=> {
+//     for (let i = array.length - 1; i > 0; i--) {
+//       const j = Math.floor(Math.random() * (i + 1));
+//       [products[i], products[j]] = [products[j], products[i]];
+//     }
+//   }
+// var shuffledProducts=[...products]
+//     var shuffledProducts = shuffleProducts(products)
+//     console.log(shuffledProducts)
+    
   return (
-    <div>
-      <h1>Product list</h1>
+  
+  <div className='product_container'>
+
+    <div className='products'>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
-      ))}
+      )).slice(0,4)}
     </div>
+
+    
+      <h4>Related Products</h4>
+      <div className='related_products'>
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      )).slice(0,2)}
+    </div>
+  
+    </div>
+    
   );
 };
 

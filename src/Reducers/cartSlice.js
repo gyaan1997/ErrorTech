@@ -55,8 +55,35 @@ const cartSlice = createSlice({
       }
       saveState(state);
     },
+    loginUser:(state,action)=>{
+      state.user=action.payload;
+      saveState(state);
+    },
+    signUpUser:(state,action)=>{
+      state.user=action.payload;
+      saveState(state);
+    }
+
+    
   },
 });
+
+// Selector to get the cartItems from the state
+export const selectCartItems = (state) => state.cart.cartItems;
+
+// // Create a memoized selector using createSelector
+// export const selectCartItemsMemoized = createSelector(
+//   [selectCartItems],
+//   (cartItems) => cartItems || []
+// );
+
+// const cartSlice = createSlice({
+//   name: 'cart',
+//   initialState: loadState() || { cartItems: [] },
+//   reducers: {
+//     // ... existing reducers
+//   },
+// });
 
 export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

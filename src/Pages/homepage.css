@@ -1,0 +1,73 @@
+.product-hero{
+   background-color:#fa8907;
+   border-radius: 3rem;
+   height: 18.5rem;
+   overflow: hidden;
+   position: relative;
+   margin-left: .5rem;
+   margin-right: .5rem;
+
+}
+.ripple-design{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.ripple-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 0.1rem solid #ffffffb6;  }
+  
+  .very-small {
+    width: 6rem;
+    height: 6rem;
+    filter: blur(2px);
+    background-color: #fb9a61;
+  }
+  
+  .small {
+    width: 15rem;
+    height: 15rem;
+  }
+  
+  .medium {
+    width: 23rem;
+    height: 23rem;
+  }
+  
+  .large {
+    width: 31rem;
+    height: 31rem;
+  }
+  
+  .shade0 {
+   opacity: 1;
+  }
+  
+  .shade1 , .shade2, .shade3{
+   opacity: .4;
+  }
+  
+ .products-nav{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    position: relative;
+ }
+ .result-sorting {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+ select{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(241, 214, 196);
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 1rem;
+  outline: none;
+ }
